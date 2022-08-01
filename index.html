@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #edf2f4 !important;" id="header">
+        <div class="container-fluid" style="justify-content: center;">
+            <div id="left">
+                <img src="https://to-do-cdn.microsoft.com/static-assets/c87265a87f887380a04cf21925a56539b29364b51ae53e089c3ee2b2180148c6/icons/logo.png"
+                    alt="ToDologo" id="logo" width="40px">
+                <a class="navbar-brand" href="#">Microsoft ToDo</a>
+            </div>
+            <div id="right">
+                <form role="search">
+                    <input class="form-control me-2" placeholder="Search" aria-label="Search" onkeyup="searching();"
+                        id="search" />
+                </form>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <div style="float:right; padding-right: 30px; padding-top: 10px;" class="btn-group" id="mode" role="group"
+        aria-label="Basic radio toggle button group">
+        <button class="btn btn-primary" value="Grid View" id="Grid-view" onclick="view(event);"
+            style="width: 125px;">Grid View</button>
+        <button class="btn btn-primary" value="Table View" id="Table-view" onclick="view(event)"
+            style="width: 125px;">Table View</button>
+    </div>
+
+    <div class="container mt-2">
+        <form onsubmit="return false;">
+            <div id="alert" class="alert alert-info shadow" style="margin-top: 57px;">
+                <p id="message" class="mb-0 pb-0 display-6">Add Task</p>
+                <input type="text" placeholder="Enter Task Here" class="form-control mt-3" id="task" autofocus>
+                <div id="triggers">
+                    <button class="btn btn-primary mt-2" id="submit" type="submit" onclick="addtask();">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container display-6 mt-5 mb-3" id="heading1">Remaining Task</div>
+    <div id="content" class="container table-responsive mt-3 overflow-auto" style="overflow-x: auto;">
+
+    </div>
+
+    <div class="container display-6 mt-5 mb-3" id="heading2">Completed Task</div>
+    <div id="completedTask" class="container table-responsive overflow-auto" style="overflow-x: auto;">
+
+    </div>
+
+    <footer class="m-5"></footer>
+
+    <!-- The Modal -->
+    <form action="" onsubmit="return false;">
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-title">Modal Heading</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body" id="modal-body" style="border: none;">
+                        Modal body..
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="border: none;">
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" id="close">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form action="">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel" style="color: blue; font-weight: bold;">Delete
+                            Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal-body1">
+                        Are you sure to delete this task?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" name="op" class="btn btn-secondary" data-bs-dismiss="modal"
+                            value="flase">No</button>
+                        <button type="submit" name="op" class="btn btn-primary" data-bs-dismiss="modal" value="true"
+                            onclick="deletetask();">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>  
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+<script src="index.js"></script>
+
+</html>
